@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DatabaseMigrationSettings" lastSelectedDirectory="db/changelog/#date(&quot;yyyy&quot;)/#date(&quot;MM&quot;)">
+    <database-infos>
+      <database-info>
+        <option name="enabled" value="true" />
+        <dbms-id>mssql</dbms-id>
+      </database-info>
+      <database-info>
+        <dbms-id>h2</dbms-id>
+        <mapping-types>
+          <mapping-type sql-type-parameter="Nothing">
+            <java-class>ir.hamrahcard.mancala.domain.Player</java-class>
+            <sql-type>xml</sql-type>
+          </mapping-type>
+        </mapping-types>
+      </database-info>
+    </database-infos>
+  </component>
+  <component name="PersistenceUnitSettings">
+    <persistence-units>
+      <persistence-unit name="Default" defaultIncludeChangeLogFile="src/main/resources/static/db/changelog/db.changelog-master.xml">
+        <packages>
+          <package value="ir.hamrahcard.mancala" />
+        </packages>
+      </persistence-unit>
+    </persistence-units>
+  </component>
+</project>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1699538305926-2" author="Reza (generated)">
+        <createSequence incrementBy="50" sequenceName="tbl_player_seq" startValue="1"/>
+    </changeSet>
+    <changeSet id="1699538305926-4" author="Reza (generated)">
+        <createTable tableName="tbl_player">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_tbl_player"/>
+            </column>
+            <column name="n_version" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="DATETIME"/>
+            <column name="last_modified_date" type="DATETIME"/>
+            <column name="side" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="turn" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="1699538305926-5" author="Reza (generated)">
+        <addUniqueConstraint columnNames="side" constraintName="uc_3edf81d875845ced7a8262be5" tableName="tbl_player"/>
+    </changeSet>
+
+</databaseChangeLog>

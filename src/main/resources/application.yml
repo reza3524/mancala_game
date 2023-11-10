@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: Local
+  application:
+    name: mancala
+  main:
+    allow-bean-definition-overriding: true
+  datasource:
+    url: jdbc:h2:mem:mancala
+    driver-class-name: org.h2.Driver
+    username: user
+    password: pass
+    tomcat:
+      connection-properties: useUnicode=true;characterEncoding=utf-8
+    hikari:
+      minimum-idle: 5
+      idle-timeout: 600000
+      maximum-pool-size: 50
+      auto-commit: true
+      pool-name: HikariCorePool
+      max-lifetime: 1800000
+      connection-timeout: 30000
+      connection-test-query: select * from information_schema.tables limit 1
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+  liquibase:
+    enabled: true
+    contexts: ${spring.profiles.active}
+    user: ${spring.datasource.username}
+    password: ${spring.datasource.password}
+    database-change-log-table: Z_LIQ_CHANGELOG
+    database-change-log-lock-table: Z_LIQ_CHANGELOG_LOCK
+    change-log: classpath:static/db/changelog/db.changelog-master.xml
